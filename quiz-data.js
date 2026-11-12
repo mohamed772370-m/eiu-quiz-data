@@ -70,12 +70,12 @@ const sub = (k, q = {}) => {
 };
 /* دوال البناء — تضمن شكلاً موحداً للبيانات */
 const SPEC  = (name, icon, color, levels, tag, logo)  => ({ name, icon, color, levels, tag, logo });
-const LEVEL = (name, terms)                => ({ name, terms });
+const LEVEL = (name, terms, logo)            => ({ name, terms, logo });
 const TERM  = (name, subjects)             => ({ name, subjects });
 
 const UNIS = [
   /* ───── الجامعة الإماراتية الدولية (كل المحتوى الحالي) ───── */
-  { name:"الجامعة الإماراتية الدولية", short:"الإماراتية", icon:"landmark", color:"#0F6B50", legacy:true, logo:"https://eiu.edu.ye/images/logo.png.webp", SPECS: [
+  { name:"الجامعة الإماراتية الدولية", short:"الإماراتية", icon:"landmark", color:"#0F6B50", legacy:true, logo:"https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/logos/eiu.webp", SPECS: [
   /* الخطة الدراسية المعتمدة لبرنامج هندسة الميكاترونكس – نظام 4 سنوات (151 ساعة) – قرار وزاري 107 لسنة 1447هـ */
   SPEC("هندسة الميكاترونكس", "cog", "#1F4E96", [
 
@@ -7186,14 +7186,14 @@ const UNIS = [
         sub("train"), sub("gp2")
       ])
     ])
-  ], "MEC"),
+  ], "MEC", "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/robot-1F4E96.svg"),
 
   /* تخصصات بدون تفاصيل بعد (تُضاف المستويات والأترام والمواد لاحقاً) */
-  SPEC("هندسة مدنية",           "building", "#8A6A2F", [], "CIV"),
-  SPEC("هندسة معدات طبية",      "heartpulse","#C23B6B", [], "BME"),
-  SPEC("هندسة نفط وغاز",        "flame",    "#D9622B", [], "OGE"),
-  SPEC("ذكاء اصطناعي",          "brain",    "#7048C9", [], "AIE"),
-  SPEC("تقنية معلومات",         "server",   "#0C8599", [], "ITE")
+  SPEC("هندسة مدنية",           "building", "#8A6A2F", [], "CIV", "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/building-bridge-8A6A2F.svg"),
+  SPEC("هندسة معدات طبية",      "heartpulse","#C23B6B", [], "BME", "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/stethoscope-C23B6B.svg"),
+  SPEC("هندسة نفط وغاز",        "flame",    "#D9622B", [], "OGE", "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/flame-D9622B.svg"),
+  SPEC("ذكاء اصطناعي",          "brain",    "#7048C9", [], "AIE", "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/sparkles-7048C9.svg"),
+  SPEC("تقنية معلومات",         "server",   "#0C8599", [], "ITE", "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/cpu-0C8599.svg")
 
   /* ───── قالب مستوى/ترم جديد داخل تخصص ─────
   LEVEL("المستوى الأول", [
@@ -7204,177 +7204,177 @@ const UNIS = [
 ]},
 
   /* Sanaa University: colleges and specialties as listed in the Nasq portal (2026) - no questions yet */
-  { name:"جامعة صنعاء", short:"صنعاء", icon:"landmark", color:"#8A6A2F", logo:"https://su.edu.ye/assets/img/logo4.png",
+  { name:"جامعة صنعاء", short:"صنعاء", icon:"landmark", color:"#8A6A2F", logo:"https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/logos/sanaa.webp",
     labels:{ spec:"الكلية", specP:"كلية", level:"التخصص", levelP:"تخصصات" },
     SPECS: [
     /* chm */
     SPEC("كلية الطب والعلوم الصحية", "book", "#1F6B4F", [
-      LEVEL("طب بشري", []),
-      LEVEL("مختبرات طبية", []),
-      LEVEL("تمريض عالي", [])
-    ], null, "https://su.edu.ye/chm/assets/images/logo.png"),
+      LEVEL("طب بشري", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/stethoscope-w.svg"),
+      LEVEL("مختبرات طبية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/microscope-w.svg"),
+      LEVEL("تمريض عالي", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/nurse-w.svg")
+    ], null, "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/logos/chm.webp"),
     /* cd */
     SPEC("كلية طب الأسنان", "book", "#8A2F3B", [
-      LEVEL("طب وجراحة الفم والأسنان", []),
-      LEVEL("تكنولوجيا صناعة الأسنان (بكالوريوس)", [])
-    ], null, "https://su.edu.ye/cd/assets/images/logo.png"),
+      LEVEL("طب وجراحة الفم والأسنان", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/dental-w.svg"),
+      LEVEL("تكنولوجيا صناعة الأسنان (بكالوريوس)", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/dental-w.svg")
+    ], null, "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/logos/cd.webp"),
     /* fp */
     SPEC("كلية الصيدلة", "book", "#1F4E96", [
-      LEVEL("صيدلة سريرية (فارما دي)", []),
-      LEVEL("علوم صيدلانية", [])
-    ], null, "https://su.edu.ye/fp/img/image057.jpg"),
+      LEVEL("صيدلة سريرية (فارما دي)", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/pill-w.svg"),
+      LEVEL("علوم صيدلانية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/pill-w.svg")
+    ], null, "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/logos/fp.webp"),
     /* cams */
     SPEC("كلية العلوم الطبية التطبيقية", "book", "#7A4E17", [
-      LEVEL("الأشعة والتصوير الطبي التشخيصي", []),
-      LEVEL("التغذية السريرية والحميات", []),
-      LEVEL("علم التخدير", []),
-      LEVEL("العلاج الطبيعي", []),
-      LEVEL("علم السمع والنطق", [])
-    ], null, "https://su.edu.ye/cams/assets/images/logo.png"),
+      LEVEL("الأشعة والتصوير الطبي التشخيصي", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/radioactive-w.svg"),
+      LEVEL("التغذية السريرية والحميات", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/salad-w.svg"),
+      LEVEL("علم التخدير", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/vaccine-w.svg"),
+      LEVEL("العلاج الطبيعي", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/stretching-w.svg"),
+      LEVEL("علم السمع والنطق", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/ear-w.svg")
+    ], null, "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/logos/cams.webp"),
     /* cvm */
     SPEC("كلية الطب البيطري", "book", "#5B3A8E", [
-      LEVEL("طب بيطري", [])
-    ], null, "https://su.edu.ye/cvm/assets/images/logo.png"),
+      LEVEL("طب بيطري", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/paw-w.svg")
+    ], null, "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/logos/cvm.webp"),
     /* ce */
     SPEC("كلية الهندسة", "book", "#0C6B73", [
-      LEVEL("قسم الهندسة المدنية", []),
-      LEVEL("قسم الهندسة المعمارية", []),
-      LEVEL("قسم الهندسة الكهربائية", []),
-      LEVEL("قسم الهندسة الميكانيكية", []),
-      LEVEL("قسم الهندسة الكيميائية", []),
-      LEVEL("هندسة الميكاترونكس", []),
-      LEVEL("الهندسة الطبية الحيوية", [])
-    ], null, "https://su.edu.ye/ce/assets/images/logo.png"),
+      LEVEL("قسم الهندسة المدنية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/building-bridge-w.svg"),
+      LEVEL("قسم الهندسة المعمارية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/building-w.svg"),
+      LEVEL("قسم الهندسة الكهربائية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/bolt-w.svg"),
+      LEVEL("قسم الهندسة الميكانيكية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/settings-w.svg"),
+      LEVEL("قسم الهندسة الكيميائية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/flask-2-w.svg"),
+      LEVEL("هندسة الميكاترونكس", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/robot-w.svg"),
+      LEVEL("الهندسة الطبية الحيوية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/heartbeat-w.svg")
+    ], null, "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/logos/ce.webp"),
     /* fcit */
     SPEC("كلية الحاسوب وتكنولوجيا المعلومات", "book", "#8A5A1F", [
-      LEVEL("نظم المعلومات", []),
-      LEVEL("تكنولوجيا المعلومات", []),
-      LEVEL("علوم حاسوب", []),
-      LEVEL("الأمن السيبراني", []),
-      LEVEL("الذكاء الاصطناعي", []),
-      LEVEL("علم البيانات", []),
-      LEVEL("جرافكس", [])
-    ], null, "https://su.edu.ye/fcit/assets/images/logo.png"),
+      LEVEL("نظم المعلومات", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/database-w.svg"),
+      LEVEL("تكنولوجيا المعلومات", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/cpu-w.svg"),
+      LEVEL("علوم حاسوب", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/code-w.svg"),
+      LEVEL("الأمن السيبراني", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/shield-lock-w.svg"),
+      LEVEL("الذكاء الاصطناعي", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/sparkles-w.svg"),
+      LEVEL("علم البيانات", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/chart-histogram-w.svg"),
+      LEVEL("جرافكس", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/palette-w.svg")
+    ], null, "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/logos/fcit.webp"),
     /* coss */
     SPEC("كلية العلوم", "book", "#2F5B8A", [
-      LEVEL("رياضيات بحتة", []),
-      LEVEL("رياضيات والحاسوب", []),
-      LEVEL("فيزياء", []),
-      LEVEL("كيمياء", []),
-      LEVEL("علم الأحياء", []),
-      LEVEL("علم الأحياء الدقيقة", []),
-      LEVEL("نبات - كيمياء", [])
-    ], null, "https://su.edu.ye/coss/assets/images/logo.png"),
+      LEVEL("رياضيات بحتة", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/math-w.svg"),
+      LEVEL("رياضيات والحاسوب", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/math-w.svg"),
+      LEVEL("فيزياء", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/atom-w.svg"),
+      LEVEL("كيمياء", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/flask-w.svg"),
+      LEVEL("علم الأحياء", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/dna-w.svg"),
+      LEVEL("علم الأحياء الدقيقة", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/dna-w.svg"),
+      LEVEL("نبات - كيمياء", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/plant-w.svg")
+    ], null, "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/logos/coss.webp"),
     /* fa */
     SPEC("كلية الزراعة والأغذية والبيئة", "book", "#1F6B4F", [
-      LEVEL("زراعة", [])
-    ], null, "https://su.edu.ye/fa/assets/images/logo.png"),
+      LEVEL("زراعة", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/tractor-w.svg")
+    ], null, "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/logos/fa.webp"),
     /* cop */
     SPEC("كلية البترول والموارد الطبيعية", "book", "#8A2F3B", [
-      LEVEL("العلوم الجيولوجية", []),
-      LEVEL("الثروات المعدنية والصخور", []),
-      LEVEL("العلوم البيئية", []),
-      LEVEL("هندسة نفط وغاز", [])
-    ], null, "https://su.edu.ye/cop/assets/images/%D8%B4%D8%B9%D8%A7%D8%B1_%D8%A7%D9%84%D8%A8%D8%AA%D8%B1%D9%88%D9%84.png"),
+      LEVEL("العلوم الجيولوجية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/mountain-w.svg"),
+      LEVEL("الثروات المعدنية والصخور", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/diamond-w.svg"),
+      LEVEL("العلوم البيئية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/leaf-w.svg"),
+      LEVEL("هندسة نفط وغاز", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/flame-w.svg")
+    ], null, "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/logos/cop.webp"),
     /* cl */
     SPEC("كلية اللغات", "book", "#1F4E96", [
-      LEVEL("اللغة العربية", []),
-      LEVEL("اللغة الإنجليزية", []),
-      LEVEL("الترجمة", []),
-      LEVEL("اللغة الفرنسية", []),
-      LEVEL("اللغة الألمانية", []),
-      LEVEL("اللغة الفارسية", [])
-    ], null, "https://su.edu.ye/cl/assets/images/%D8%B4%D8%B9%D8%A7%D8%B1-%D8%A7%D9%84%D9%83%D9%84%D9%8A%D8%A9.png"),
+      LEVEL("اللغة العربية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/alphabet-arabic-w.svg"),
+      LEVEL("اللغة الإنجليزية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/alphabet-latin-w.svg"),
+      LEVEL("الترجمة", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/language-w.svg"),
+      LEVEL("اللغة الفرنسية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/language-w.svg"),
+      LEVEL("اللغة الألمانية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/language-w.svg"),
+      LEVEL("اللغة الفارسية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/language-w.svg")
+    ], null, "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/logos/cl.webp"),
     /* fe */
     SPEC("كلية التربية صنعاء", "book", "#7A4E17", [
-      LEVEL("قرآن وعلومه", []),
-      LEVEL("دراسات إسلامية", []),
-      LEVEL("دراسات عربية", []),
-      LEVEL("دراسات إنجليزية", []),
-      LEVEL("كيمياء", []),
-      LEVEL("فيزياء", []),
-      LEVEL("رياضيات", []),
-      LEVEL("علوم حياة", []),
-      LEVEL("معلم صف", []),
-      LEVEL("معلم حاسوب", []),
-      LEVEL("معلم مجال", []),
-      LEVEL("طفولة مبكرة - رياض أطفال", []),
-      LEVEL("تاريخ", []),
-      LEVEL("جغرافيا", []),
-      LEVEL("فلسفة", [])
-    ], null, "https://su.edu.ye/fe/assets/images/logo.png"),
+      LEVEL("قرآن وعلومه", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/book-2-w.svg"),
+      LEVEL("دراسات إسلامية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/moon-stars-w.svg"),
+      LEVEL("دراسات عربية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/alphabet-arabic-w.svg"),
+      LEVEL("دراسات إنجليزية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/alphabet-latin-w.svg"),
+      LEVEL("كيمياء", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/flask-w.svg"),
+      LEVEL("فيزياء", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/atom-w.svg"),
+      LEVEL("رياضيات", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/math-w.svg"),
+      LEVEL("علوم حياة", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/dna-w.svg"),
+      LEVEL("معلم صف", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/chalkboard-w.svg"),
+      LEVEL("معلم حاسوب", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/device-laptop-w.svg"),
+      LEVEL("معلم مجال", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/school-w.svg"),
+      LEVEL("طفولة مبكرة - رياض أطفال", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/horse-toy-w.svg"),
+      LEVEL("تاريخ", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/history-w.svg"),
+      LEVEL("جغرافيا", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/map-2-w.svg"),
+      LEVEL("فلسفة", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/bulb-w.svg")
+    ], null, "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/logos/fe.webp"),
     /* fah */
     SPEC("كلية الآداب والعلوم الإنسانية", "book", "#5B3A8E", [
-      LEVEL("اللغة العربية وآدابها", []),
-      LEVEL("اللغة الإنجليزية وآدابها", []),
-      LEVEL("اللغة الفرنسية وآدابها", []),
-      LEVEL("الدراسات الإسلامية", []),
-      LEVEL("التاريخ والعلاقات الدولية", []),
-      LEVEL("الجغرافيا والجيوانفورماتكس", []),
-      LEVEL("الآثار والسياحة", []),
-      LEVEL("الفلسفة", []),
-      LEVEL("علم النفس", []),
-      LEVEL("علم الاجتماع", []),
-      LEVEL("الخدمة الاجتماعية", []),
-      LEVEL("المكتبات وعلم المعلومات", []),
-      LEVEL("الدراسات الأفريقية", [])
-    ], null, "https://su.edu.ye/fah/assets/images/logo.png"),
+      LEVEL("اللغة العربية وآدابها", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/alphabet-arabic-w.svg"),
+      LEVEL("اللغة الإنجليزية وآدابها", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/alphabet-latin-w.svg"),
+      LEVEL("اللغة الفرنسية وآدابها", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/language-w.svg"),
+      LEVEL("الدراسات الإسلامية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/moon-stars-w.svg"),
+      LEVEL("التاريخ والعلاقات الدولية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/history-w.svg"),
+      LEVEL("الجغرافيا والجيوانفورماتكس", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/map-2-w.svg"),
+      LEVEL("الآثار والسياحة", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/pyramid-w.svg"),
+      LEVEL("الفلسفة", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/bulb-w.svg"),
+      LEVEL("علم النفس", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/brain-w.svg"),
+      LEVEL("علم الاجتماع", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/users-w.svg"),
+      LEVEL("الخدمة الاجتماعية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/heart-handshake-w.svg"),
+      LEVEL("المكتبات وعلم المعلومات", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/books-w.svg"),
+      LEVEL("الدراسات الأفريقية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/world-w.svg")
+    ], null, "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/logos/fah.webp"),
     /* ci */
     SPEC("كلية الإعلام", "book", "#0C6B73", [
-      LEVEL("إعلام", [])
-    ], null, "https://su.edu.ye/ci/img/%D8%B4%D8%B9%D8%A7%D8%B1_%D9%83%D9%84%D9%8A%D8%A9_%D8%A7%D9%84%D8%A5%D8%B9%D9%84%D8%A7%D9%85.png"),
+      LEVEL("إعلام", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/microphone-w.svg")
+    ], null, "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/logos/ci.webp"),
     /* cos */
     SPEC("كلية الشريعة والقانون", "book", "#8A5A1F", [
-      LEVEL("شريعة وقانون", [])
-    ], null, "https://su.edu.ye/cos/assets/images/%D8%B4%D8%B9%D8%A7%D8%B1-%D8%A7%D9%84%D9%83%D9%84%D9%8A%D8%A9.png"),
+      LEVEL("شريعة وقانون", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/gavel-w.svg")
+    ], null, "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/logos/cos.webp"),
     /* cce */
     SPEC("كلية التجارة والاقتصاد", "book", "#2F5B8A", [
-      LEVEL("عام", [])
-    ], null, "https://su.edu.ye/cce/assets/images/%D8%B4%D8%B9%D8%A7%D8%B1-%D8%A7%D9%84%D9%83%D9%84%D9%8A%D8%A9.png"),
+      LEVEL("عام", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/coin-w.svg")
+    ], null, "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/logos/cce.webp"),
     /* fpe */
     SPEC("كلية التربية الرياضية", "book", "#1F6B4F", [
-      LEVEL("تربية رياضية", [])
-    ], null, "https://su.edu.ye/fpe/img/logo-faculty.png"),
+      LEVEL("تربية رياضية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/run-w.svg")
+    ], null, "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/logos/fpe.webp"),
     /* feask */
     SPEC("كلية التربية والعلوم الإنسانية والتطبيقية - خولان", "book", "#8A2F3B", [
-      LEVEL("اللغة العربية / تربية", []),
-      LEVEL("اللغة العربية / آداب", []),
-      LEVEL("اللغة الإنجليزية / تربية", []),
-      LEVEL("اللغة الإنجليزية / آداب", []),
-      LEVEL("التاريخ / تربية", []),
-      LEVEL("التاريخ / آداب", []),
-      LEVEL("الرياضيات / تربية", []),
-      LEVEL("الفيزياء / تربية", []),
-      LEVEL("الكيمياء / تربية", []),
-      LEVEL("علوم الحياة / تربية", []),
-      LEVEL("القرآن وعلومه / تربية", []),
-      LEVEL("معلم حاسوب / تربية", []),
-      LEVEL("علوم الحاسوب / علوم", [])
-    ], null, "https://su.edu.ye/feask/assets/images/logo.png"),
+      LEVEL("اللغة العربية / تربية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/alphabet-arabic-w.svg"),
+      LEVEL("اللغة العربية / آداب", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/alphabet-arabic-w.svg"),
+      LEVEL("اللغة الإنجليزية / تربية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/alphabet-latin-w.svg"),
+      LEVEL("اللغة الإنجليزية / آداب", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/alphabet-latin-w.svg"),
+      LEVEL("التاريخ / تربية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/history-w.svg"),
+      LEVEL("التاريخ / آداب", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/history-w.svg"),
+      LEVEL("الرياضيات / تربية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/math-w.svg"),
+      LEVEL("الفيزياء / تربية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/atom-w.svg"),
+      LEVEL("الكيمياء / تربية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/flask-w.svg"),
+      LEVEL("علوم الحياة / تربية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/dna-w.svg"),
+      LEVEL("القرآن وعلومه / تربية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/book-2-w.svg"),
+      LEVEL("معلم حاسوب / تربية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/device-laptop-w.svg"),
+      LEVEL("علوم الحاسوب / علوم", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/code-w.svg")
+    ], null, "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/logos/feask.webp"),
     /* feasa */
     SPEC("كلية التربية والعلوم التطبيقية - أرحب", "book", "#1F4E96", [
-      LEVEL("القرآن الكريم وعلومه", []),
-      LEVEL("الدراسات الإسلامية", []),
-      LEVEL("اللغة العربية", []),
-      LEVEL("اللغة الإنجليزية", []),
-      LEVEL("التاريخ", []),
-      LEVEL("الجغرافيا", []),
-      LEVEL("الرياضيات", []),
-      LEVEL("الفيزياء", []),
-      LEVEL("الكيمياء", []),
-      LEVEL("تقنية معلومات", [])
-    ], null, "https://su.edu.ye/feasa/img/%D8%B4%D8%B9%D8%A7%D8%B1_%D8%A7%D9%84%D9%83%D9%84%D9%8A%D8%A9.png"),
+      LEVEL("القرآن الكريم وعلومه", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/book-2-w.svg"),
+      LEVEL("الدراسات الإسلامية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/moon-stars-w.svg"),
+      LEVEL("اللغة العربية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/alphabet-arabic-w.svg"),
+      LEVEL("اللغة الإنجليزية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/alphabet-latin-w.svg"),
+      LEVEL("التاريخ", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/history-w.svg"),
+      LEVEL("الجغرافيا", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/map-2-w.svg"),
+      LEVEL("الرياضيات", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/math-w.svg"),
+      LEVEL("الفيزياء", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/atom-w.svg"),
+      LEVEL("الكيمياء", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/flask-w.svg"),
+      LEVEL("تقنية معلومات", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/cpu-w.svg")
+    ], null, "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/logos/feasa.webp"),
     /* feahsj */
     SPEC("كلية التربية والعلوم الإنسانية والتطبيقية - الجوف", "book", "#7A4E17", [
-      LEVEL("قرآن كريم", []),
-      LEVEL("لغة عربية", []),
-      LEVEL("لغة إنجليزية", []),
-      LEVEL("رياضيات", []),
-      LEVEL("علوم الحياة", []),
-      LEVEL("معلم صف", []),
-      LEVEL("نظم معلومات", []),
-      LEVEL("إدارة عامة", [])
-    ], null, "https://su.edu.ye/feahsj/assets/images/logo.png")
+      LEVEL("قرآن كريم", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/book-2-w.svg"),
+      LEVEL("لغة عربية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/alphabet-arabic-w.svg"),
+      LEVEL("لغة إنجليزية", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/alphabet-latin-w.svg"),
+      LEVEL("رياضيات", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/math-w.svg"),
+      LEVEL("علوم الحياة", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/dna-w.svg"),
+      LEVEL("معلم صف", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/chalkboard-w.svg"),
+      LEVEL("نظم معلومات", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/database-w.svg"),
+      LEVEL("إدارة عامة", [], "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/icons/briefcase-w.svg")
+    ], null, "https://raw.githubusercontent.com/mohamed772370-m/eiu-quiz-data/main/assets/logos/feahsj.webp")
     ]}
 ];
 return { UNIS, SPECS: UNIS[0].SPECS };  /* SPECS للتوافق مع النسخة القديمة من الصفحة */
