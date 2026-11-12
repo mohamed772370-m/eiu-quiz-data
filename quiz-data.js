@@ -1,4 +1,7 @@
-/* بيانات أسئلة منصة الكويزات - الجامعة الإماراتية الدولية */
+/* بيانات أسئلة منصة الكويزات
+   البيانات مرتبة بالجامعات: كل جامعة داخل UNIS لها قائمة تخصصات SPECS خاصة بها.
+   لإضافة جامعة جديدة: انسخ كتلة جامعة كاملة وعدّل اسمها وتخصصاتها.
+   لإضافة أو تعديل أسئلة: عدّل داخل تخصص الجامعة المعنية كما كان سابقاً. */
 window.QZ_DATA = (() => {
 "use strict";
 /* مكتبة المواد (الاسم والأيقونة واللون فقط – الأسئلة تُكتب داخل كل ترم) */
@@ -66,11 +69,13 @@ const sub = (k, q = {}) => {
   return b ? { ...b, mcq:"", tf:"", ...q } : { name:"⚠ " + k, key:k, missing:true, mcq:"", tf:"", ...q };
 };
 /* دوال البناء — تضمن شكلاً موحداً للبيانات */
-const SPEC  = (name, icon, color, levels, tag)  => ({ name, icon, color, levels, tag });
+const SPEC  = (name, icon, color, levels, tag, logo)  => ({ name, icon, color, levels, tag, logo });
 const LEVEL = (name, terms)                => ({ name, terms });
 const TERM  = (name, subjects)             => ({ name, subjects });
 
-const SPECS = [
+const UNIS = [
+  /* ───── الجامعة الإماراتية الدولية (كل المحتوى الحالي) ───── */
+  { name:"الجامعة الإماراتية الدولية", short:"الإماراتية", icon:"landmark", color:"#0F6B50", legacy:true, SPECS: [
   /* الخطة الدراسية المعتمدة لبرنامج هندسة الميكاترونكس – نظام 4 سنوات (151 ساعة) – قرار وزاري 107 لسنة 1447هـ */
   SPEC("هندسة الميكاترونكس", "cog", "#1F4E96", [
 
@@ -7196,6 +7201,181 @@ const SPECS = [
     TERM("الترم الثاني", [ ... ])
   ])
   */
+]},
+
+  /* Sanaa University: colleges and specialties as listed in the Nasq portal (2026) - no questions yet */
+  { name:"جامعة صنعاء", short:"صنعاء", icon:"landmark", color:"#8A6A2F",
+    labels:{ spec:"الكلية", specP:"كلية", level:"التخصص", levelP:"تخصصات" },
+    SPECS: [
+    /* chm */
+    SPEC("كلية الطب والعلوم الصحية", "book", "#1F6B4F", [
+      LEVEL("طب بشري", []),
+      LEVEL("مختبرات طبية", []),
+      LEVEL("تمريض عالي", [])
+    ], null, "https://su.edu.ye/chm/assets/images/logo.png"),
+    /* cd */
+    SPEC("كلية طب الأسنان", "book", "#8A2F3B", [
+      LEVEL("طب وجراحة الفم والأسنان", []),
+      LEVEL("تكنولوجيا صناعة الأسنان (بكالوريوس)", [])
+    ], null, "https://su.edu.ye/cd/assets/images/logo.png"),
+    /* fp */
+    SPEC("كلية الصيدلة", "book", "#1F4E96", [
+      LEVEL("صيدلة سريرية (فارما دي)", []),
+      LEVEL("علوم صيدلانية", [])
+    ], null, "https://su.edu.ye/fp/img/image057.jpg"),
+    /* cams */
+    SPEC("كلية العلوم الطبية التطبيقية", "book", "#7A4E17", [
+      LEVEL("الأشعة والتصوير الطبي التشخيصي", []),
+      LEVEL("التغذية السريرية والحميات", []),
+      LEVEL("علم التخدير", []),
+      LEVEL("العلاج الطبيعي", []),
+      LEVEL("علم السمع والنطق", [])
+    ], null, "https://su.edu.ye/cams/assets/images/logo.png"),
+    /* cvm */
+    SPEC("كلية الطب البيطري", "book", "#5B3A8E", [
+      LEVEL("طب بيطري", [])
+    ], null, "https://su.edu.ye/cvm/assets/images/logo.png"),
+    /* ce */
+    SPEC("كلية الهندسة", "book", "#0C6B73", [
+      LEVEL("قسم الهندسة المدنية", []),
+      LEVEL("قسم الهندسة المعمارية", []),
+      LEVEL("قسم الهندسة الكهربائية", []),
+      LEVEL("قسم الهندسة الميكانيكية", []),
+      LEVEL("قسم الهندسة الكيميائية", []),
+      LEVEL("هندسة الميكاترونكس", []),
+      LEVEL("الهندسة الطبية الحيوية", [])
+    ], null, "https://su.edu.ye/ce/assets/images/logo.png"),
+    /* fcit */
+    SPEC("كلية الحاسوب وتكنولوجيا المعلومات", "book", "#8A5A1F", [
+      LEVEL("نظم المعلومات", []),
+      LEVEL("تكنولوجيا المعلومات", []),
+      LEVEL("علوم حاسوب", []),
+      LEVEL("الأمن السيبراني", []),
+      LEVEL("الذكاء الاصطناعي", []),
+      LEVEL("علم البيانات", []),
+      LEVEL("جرافكس", [])
+    ], null, "https://su.edu.ye/fcit/assets/images/logo.png"),
+    /* coss */
+    SPEC("كلية العلوم", "book", "#2F5B8A", [
+      LEVEL("رياضيات بحتة", []),
+      LEVEL("رياضيات والحاسوب", []),
+      LEVEL("فيزياء", []),
+      LEVEL("كيمياء", []),
+      LEVEL("علم الأحياء", []),
+      LEVEL("علم الأحياء الدقيقة", []),
+      LEVEL("نبات - كيمياء", [])
+    ], null, "https://su.edu.ye/coss/assets/images/logo.png"),
+    /* fa */
+    SPEC("كلية الزراعة والأغذية والبيئة", "book", "#1F6B4F", [
+      LEVEL("زراعة", [])
+    ], null, "https://su.edu.ye/fa/assets/images/logo.png"),
+    /* cop */
+    SPEC("كلية البترول والموارد الطبيعية", "book", "#8A2F3B", [
+      LEVEL("العلوم الجيولوجية", []),
+      LEVEL("الثروات المعدنية والصخور", []),
+      LEVEL("العلوم البيئية", []),
+      LEVEL("هندسة نفط وغاز", [])
+    ], null, "https://su.edu.ye/cop/assets/images/%D8%B4%D8%B9%D8%A7%D8%B1_%D8%A7%D9%84%D8%A8%D8%AA%D8%B1%D9%88%D9%84.png"),
+    /* cl */
+    SPEC("كلية اللغات", "book", "#1F4E96", [
+      LEVEL("اللغة العربية", []),
+      LEVEL("اللغة الإنجليزية", []),
+      LEVEL("الترجمة", []),
+      LEVEL("اللغة الفرنسية", []),
+      LEVEL("اللغة الألمانية", []),
+      LEVEL("اللغة الفارسية", [])
+    ], null, "https://su.edu.ye/cl/assets/images/%D8%B4%D8%B9%D8%A7%D8%B1-%D8%A7%D9%84%D9%83%D9%84%D9%8A%D8%A9.png"),
+    /* fe */
+    SPEC("كلية التربية صنعاء", "book", "#7A4E17", [
+      LEVEL("قرآن وعلومه", []),
+      LEVEL("دراسات إسلامية", []),
+      LEVEL("دراسات عربية", []),
+      LEVEL("دراسات إنجليزية", []),
+      LEVEL("كيمياء", []),
+      LEVEL("فيزياء", []),
+      LEVEL("رياضيات", []),
+      LEVEL("علوم حياة", []),
+      LEVEL("معلم صف", []),
+      LEVEL("معلم حاسوب", []),
+      LEVEL("معلم مجال", []),
+      LEVEL("طفولة مبكرة - رياض أطفال", []),
+      LEVEL("تاريخ", []),
+      LEVEL("جغرافيا", []),
+      LEVEL("فلسفة", [])
+    ], null, "https://su.edu.ye/fe/assets/images/logo.png"),
+    /* fah */
+    SPEC("كلية الآداب والعلوم الإنسانية", "book", "#5B3A8E", [
+      LEVEL("اللغة العربية وآدابها", []),
+      LEVEL("اللغة الإنجليزية وآدابها", []),
+      LEVEL("اللغة الفرنسية وآدابها", []),
+      LEVEL("الدراسات الإسلامية", []),
+      LEVEL("التاريخ والعلاقات الدولية", []),
+      LEVEL("الجغرافيا والجيوانفورماتكس", []),
+      LEVEL("الآثار والسياحة", []),
+      LEVEL("الفلسفة", []),
+      LEVEL("علم النفس", []),
+      LEVEL("علم الاجتماع", []),
+      LEVEL("الخدمة الاجتماعية", []),
+      LEVEL("المكتبات وعلم المعلومات", []),
+      LEVEL("الدراسات الأفريقية", [])
+    ], null, "https://su.edu.ye/fah/assets/images/logo.png"),
+    /* ci */
+    SPEC("كلية الإعلام", "book", "#0C6B73", [
+      LEVEL("إعلام", [])
+    ], null, "https://su.edu.ye/ci/img/%D8%B4%D8%B9%D8%A7%D8%B1_%D9%83%D9%84%D9%8A%D8%A9_%D8%A7%D9%84%D8%A5%D8%B9%D9%84%D8%A7%D9%85.png"),
+    /* cos */
+    SPEC("كلية الشريعة والقانون", "book", "#8A5A1F", [
+      LEVEL("شريعة وقانون", [])
+    ], null, "https://su.edu.ye/cos/assets/images/%D8%B4%D8%B9%D8%A7%D8%B1-%D8%A7%D9%84%D9%83%D9%84%D9%8A%D8%A9.png"),
+    /* cce */
+    SPEC("كلية التجارة والاقتصاد", "book", "#2F5B8A", [
+      LEVEL("عام", [])
+    ], null, "https://su.edu.ye/cce/assets/images/%D8%B4%D8%B9%D8%A7%D8%B1-%D8%A7%D9%84%D9%83%D9%84%D9%8A%D8%A9.png"),
+    /* fpe */
+    SPEC("كلية التربية الرياضية", "book", "#1F6B4F", [
+      LEVEL("تربية رياضية", [])
+    ], null, "https://su.edu.ye/fpe/img/logo-faculty.png"),
+    /* feask */
+    SPEC("كلية التربية والعلوم الإنسانية والتطبيقية - خولان", "book", "#8A2F3B", [
+      LEVEL("اللغة العربية / تربية", []),
+      LEVEL("اللغة العربية / آداب", []),
+      LEVEL("اللغة الإنجليزية / تربية", []),
+      LEVEL("اللغة الإنجليزية / آداب", []),
+      LEVEL("التاريخ / تربية", []),
+      LEVEL("التاريخ / آداب", []),
+      LEVEL("الرياضيات / تربية", []),
+      LEVEL("الفيزياء / تربية", []),
+      LEVEL("الكيمياء / تربية", []),
+      LEVEL("علوم الحياة / تربية", []),
+      LEVEL("القرآن وعلومه / تربية", []),
+      LEVEL("معلم حاسوب / تربية", []),
+      LEVEL("علوم الحاسوب / علوم", [])
+    ], null, "https://su.edu.ye/feask/assets/images/logo.png"),
+    /* feasa */
+    SPEC("كلية التربية والعلوم التطبيقية - أرحب", "book", "#1F4E96", [
+      LEVEL("القرآن الكريم وعلومه", []),
+      LEVEL("الدراسات الإسلامية", []),
+      LEVEL("اللغة العربية", []),
+      LEVEL("اللغة الإنجليزية", []),
+      LEVEL("التاريخ", []),
+      LEVEL("الجغرافيا", []),
+      LEVEL("الرياضيات", []),
+      LEVEL("الفيزياء", []),
+      LEVEL("الكيمياء", []),
+      LEVEL("تقنية معلومات", [])
+    ], null, "https://su.edu.ye/feasa/img/%D8%B4%D8%B9%D8%A7%D8%B1_%D8%A7%D9%84%D9%83%D9%84%D9%8A%D8%A9.png"),
+    /* feahsj */
+    SPEC("كلية التربية والعلوم الإنسانية والتطبيقية - الجوف", "book", "#7A4E17", [
+      LEVEL("قرآن كريم", []),
+      LEVEL("لغة عربية", []),
+      LEVEL("لغة إنجليزية", []),
+      LEVEL("رياضيات", []),
+      LEVEL("علوم الحياة", []),
+      LEVEL("معلم صف", []),
+      LEVEL("نظم معلومات", []),
+      LEVEL("إدارة عامة", [])
+    ], null, "https://su.edu.ye/feahsj/assets/images/logo.png")
+    ]}
 ];
-return { SPECS };
+return { UNIS, SPECS: UNIS[0].SPECS };  /* SPECS للتوافق مع النسخة القديمة من الصفحة */
 })();
