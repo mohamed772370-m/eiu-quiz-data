@@ -75,7 +75,7 @@ const TERM  = (name, subjects)             => ({ name, subjects });
 
 const UNIS = [
   /* ───── الجامعة الإماراتية الدولية (كل المحتوى الحالي) ───── */
-  { name:"الجامعة الإماراتية الدولية", short:"الإماراتية", icon:"landmark", color:"#0F6B50", legacy:true, SPECS: [
+  { name:"الجامعة الإماراتية الدولية", short:"الإماراتية", icon:"landmark", color:"#0F6B50", legacy:true, logo:"https://eiu.edu.ye/images/logo.png.webp", SPECS: [
   /* الخطة الدراسية المعتمدة لبرنامج هندسة الميكاترونكس – نظام 4 سنوات (151 ساعة) – قرار وزاري 107 لسنة 1447هـ */
   SPEC("هندسة الميكاترونكس", "cog", "#1F4E96", [
 
@@ -7204,7 +7204,7 @@ const UNIS = [
 ]},
 
   /* Sanaa University: colleges and specialties as listed in the Nasq portal (2026) - no questions yet */
-  { name:"جامعة صنعاء", short:"صنعاء", icon:"landmark", color:"#8A6A2F",
+  { name:"جامعة صنعاء", short:"صنعاء", icon:"landmark", color:"#8A6A2F", logo:"https://su.edu.ye/assets/img/logo4.png",
     labels:{ spec:"الكلية", specP:"كلية", level:"التخصص", levelP:"تخصصات" },
     SPECS: [
     /* chm */
