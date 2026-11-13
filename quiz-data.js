@@ -7398,7 +7398,7 @@ const SANAA_HOLD = {"كلية الصيدلة|صيدلة سريرية (فارما
       L.years=P.y.map(([yn,ts])=>({name:yn,terms:ts.map(([tn,cs])=>cs==="missing"?{name:tn,missing:true,subjects:[]}:(seen=>({name:tn,subjects:cs.map(([code,nm,h])=>{const x={name:nm,code,hours:h},kk=code+"|"+nm+"|"+h;if(seen[kk])x.dup=1;else seen[kk]=1;return x})}))({}))}));   /* الصف المكرر حرفياً في المصدر يبقى ظاهراً لكنه لا يُحسب في عدد المواد المطلوبة */
       let hnull=false,hsum=0,nc=0;
       L.years.forEach(y=>y.terms.forEach(t=>t.subjects.forEach(x=>{if(!x.dup)nc++;if(x.hours==null)hnull=true;else hsum+=x.hours})));
-      L.plan={src:P.s,note:P.n||null,annual:L.years.every(y=>y.terms.length===1),hoursTotal:(hnull||P.h0)?null:hsum,courses:nc,partial:!!P.p};
+      L.plan={src:P.s,note:P.n||null,annual:L.years.every(y=>y.terms.length===1),hoursTotal:(hnull||P.h0)?null:hsum,courses:nc,partial:!!P.p,hoursUncertain:!!P.h0};
     }else{
       const H=SANAA_HOLD[S.name+"|"+L.name];
       L.pstat=H?H[0]:"missing";L.pnote=H?H[1]:"";
