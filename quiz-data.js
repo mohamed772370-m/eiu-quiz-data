@@ -7395,9 +7395,9 @@ const SANAA_HOLD = {"كلية الطب والعلوم الصحية|طب بشري
   SU.SPECS.forEach(S=>(S.levels||[]).forEach(L=>{
     const P=SANAA_PLANS[S.name+"|"+L.name];
     if(P){
-      L.years=P.y.map(([yn,ts])=>({name:yn,terms:ts.map(([tn,cs])=>({name:tn,subjects:cs.map(([code,nm,h])=>({name:nm,code,hours:h}))}))}));
+      L.years=P.y.map(([yn,ts])=>({name:yn,terms:ts.map(([tn,cs])=>{const seen={};return {name:tn,subjects:cs.map(([code,nm,h])=>{const x={name:nm,code,hours:h},kk=code+"|"+nm+"|"+h;if(seen[kk])x.dup=1;else seen[kk]=1;return x})}})}));   /* الصف المكرر حرفياً في المصدر يبقى ظاهراً لكنه لا يُحسب في عدد المواد المطلوبة */
       let hnull=false,hsum=0,nc=0;
-      L.years.forEach(y=>y.terms.forEach(t=>t.subjects.forEach(x=>{nc++;if(x.hours==null)hnull=true;else hsum+=x.hours})));
+      L.years.forEach(y=>y.terms.forEach(t=>t.subjects.forEach(x=>{if(!x.dup)nc++;if(x.hours==null)hnull=true;else hsum+=x.hours})));
       L.plan={src:P.s,note:P.n||null,annual:L.years.every(y=>y.terms.length===1),hoursTotal:hnull?null:hsum,courses:nc};
     }else{
       const H=SANAA_HOLD[S.name+"|"+L.name];
